@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     @IBAction func sayItButtonPressed(_ sender: UIButton) {
         print("👌🏾You clicked the say it button")
         messageLabel.text = "You Are Not Awesome!"
-        
     }
     
 }
