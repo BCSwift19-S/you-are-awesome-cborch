@@ -23,13 +23,17 @@ class ViewController: UIViewController {
     // IBAction button
     // This function executes when the button is pressed and released
     @IBAction func showMessagePressed(_ sender: UIButton) {
+        let message1 = "You Are Awesome!"
+        let message2 = "You Are Great!"
+        let message3 = "You Are Amazing!"
+        
         // Dot notation allows you to access the objects attributes
-        if messageLabel.text == "You Are Awesome!" {
-            messageLabel.text = "You Are Great!"
-        } else if messageLabel.text == "You are Great!"{
-            messageLabel.text = "You Are Amazing!"
+        if messageLabel.text == message1 {
+            messageLabel.text = message2
+        } else if messageLabel.text == message2 {
+            messageLabel.text = message3
         } else {
-            messageLabel.text = "You Are Awesome!"
+            messageLabel.text = message1
         }
     }
 
@@ -54,5 +58,17 @@ class ViewController: UIViewController {
 // Conditional Logic(IF)
 // Looking at the IF statement
 // == is comparison, = is assignment
+
+// 2.7 Notes
+// Constants with let
+// A value that is unchanging
+// Message values only exist in their fucntion or lower
+// This is known as scope
+// The scope of message values is only within function so they don't exist elsewhere
+// XCode won't code complete outside of scope which is awesome
+// Pull them out of func for class wide scope
+// Why mot define everything classwide?
+// - Greater chance of error
+// - Clutter, memory managment
 
 
