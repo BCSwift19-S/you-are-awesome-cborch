@@ -24,16 +24,15 @@ class ViewController: UIViewController {
     // This function executes when the button is pressed and released
     @IBAction func showMessagePressed(_ sender: UIButton) {
         // Dot notation allows you to access the objects attributes
-        messageLabel.text = "You Are Awesome!"
-        // Accessing a property of type UI Color so have to set a UIColor
-        messageLabel.textColor = UIColor.red
+        if messageLabel.text == "You Are Awesome!" {
+            messageLabel.text = "You Are Great!"
+        } else if messageLabel.text == "You are Great!"{
+            messageLabel.text = "You Are Amazing!"
+        } else {
+            messageLabel.text = "You Are Awesome!"
+        }
     }
-    
-    @IBAction func showAnotherMessagePressed(_ sender: UIButton) {
-        messageLabel.text = "You Are Great!"
-        // Accessing a property of type UI Color so have to set a UIColor
-        messageLabel.textColor = UIColor.blue
-    }
+
 }
 
 // 2.4 Notes
@@ -50,5 +49,10 @@ class ViewController: UIViewController {
 // XCode autocomplete will you tell you the type of thing you are accessing
 // From there you can figure out how to match that type
 // We looked at the UIColor type of Labels
+
+// 2.6 Notes
+// Conditional Logic(IF)
+// Looking at the IF statement
+// == is comparison, = is assignment
 
 
