@@ -25,10 +25,14 @@ class ViewController: UIViewController {
     @IBAction func showMessagePressed(_ sender: UIButton) {
         // Dot notation allows you to access the objects attributes
         messageLabel.text = "You Are Awesome!"
+        // Accessing a property of type UI Color so have to set a UIColor
+        messageLabel.textColor = UIColor.red
     }
     
     @IBAction func showAnotherMessagePressed(_ sender: UIButton) {
         messageLabel.text = "You Are Great!"
+        // Accessing a property of type UI Color so have to set a UIColor
+        messageLabel.textColor = UIColor.blue
     }
 }
 
@@ -41,4 +45,10 @@ class ViewController: UIViewController {
 // - RIght click on View Controller dot and break the connection. Then drag the white dot over to the label to reestablish the connection
 // Use Refactor for better renaming
 // - This will automatically rename it every place it appears inclduing in Outlet connections
+
+// 2.5 Notes
+// XCode autocomplete will you tell you the type of thing you are accessing
+// From there you can figure out how to match that type
+// We looked at the UIColor type of Labels
+
 
