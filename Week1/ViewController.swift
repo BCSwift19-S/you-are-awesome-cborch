@@ -32,3 +32,13 @@ class ViewController: UIViewController {
     }
 }
 
+// 2.4 Notes
+// If XCode isn't doing code completion you likely have a typo
+// Unresolved identifier means XCode doesn't recgonzie what you have written as having been defined
+// If you break an IBOutlet connection by just chagning the names, the program will run and then crash
+// - You will end up in App Delegate.swift which means there is a broken conncetion between your code and interface builder
+// - Can see a broken connection because the circle plug in will be white not black
+// - RIght click on View Controller dot and break the connection. Then drag the white dot over to the label to reestablish the connection
+// Use Refactor for better renaming
+// - This will automatically rename it every place it appears inclduing in Outlet connections
+

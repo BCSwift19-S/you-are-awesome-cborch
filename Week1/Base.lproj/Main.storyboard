@@ -53,7 +53,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="messageLabel" destination="2o4-mf-dJ0" id="onb-dc-Oa5"/>
+                        <outlet property="messageLabel" destination="2o4-mf-dJ0" id="KRg-H3-TSD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
