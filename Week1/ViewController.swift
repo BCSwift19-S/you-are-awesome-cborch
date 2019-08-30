@@ -9,17 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // Need to name this label so we can control it
     @IBOutlet weak var messageLabel: UILabel!
     
+    // Happens when the view loads
+    // Its a system event that apple provides and is called by iOS
+    // iOS sometimes known as event driven programming where there are system events or user actions to trigger functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("🤑viewDidLoad has executed!")
-        
     }
 
-    @IBAction func sayItButtonPressed(_ sender: UIButton) {
-        print("👌🏾You clicked the say it button")
-        messageLabel.text = "You Are Not Awesome!"
+    // IBAction button
+    // This function executes when the button is pressed and released
+    @IBAction func showMessagePressed(_ sender: UIButton) {
+        // Dot notation allows you to access the objects attributes
+        messageLabel.text = "You Are Awesome!"
     }
     
 }

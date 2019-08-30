@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Are Awesome!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="2o4-mf-dJ0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="2o4-mf-dJ0">
                                 <rect key="frame" x="16" y="20" width="288" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="D6m-bN-aE0"/>
@@ -27,15 +27,12 @@
                                 <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYf-q2-KGi">
-                                <rect key="frame" x="129" y="195" width="62" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="62" id="ZuT-B2-47a"/>
-                                    <constraint firstAttribute="height" constant="30" id="zg9-tm-oOp"/>
-                                </constraints>
-                                <state key="normal" title="Say it!"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpc-BC-slo">
+                                <rect key="frame" x="108" y="148" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Show Message"/>
                                 <connections>
-                                    <action selector="sayItButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yR9-Nz-WNA"/>
+                                    <action selector="showMessagePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JCB-pp-ydh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,9 +40,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2o4-mf-dJ0" secondAttribute="trailing" constant="16" id="497-fU-Wcc"/>
                             <constraint firstItem="2o4-mf-dJ0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mty-Ml-0T8"/>
-                            <constraint firstItem="aYf-q2-KGi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VA0-tk-PbC"/>
                             <constraint firstItem="2o4-mf-dJ0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bIk-Zi-dha"/>
-                            <constraint firstItem="aYf-q2-KGi" firstAttribute="top" secondItem="2o4-mf-dJ0" secondAttribute="bottom" constant="55" id="cgb-Sy-3CA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
