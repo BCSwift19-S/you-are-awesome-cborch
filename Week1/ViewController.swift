@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     // Need to name this label so we can control it
     @IBOutlet weak var messageLabel: UILabel!
+    // Class wide index var
+    var index = 0
     
     // Happens when the view loads
     // Its a system event that apple provides and is called by iOS
@@ -23,18 +25,38 @@ class ViewController: UIViewController {
     // IBAction button
     // This function executes when the button is pressed and released
     @IBAction func showMessagePressed(_ sender: UIButton) {
-        let message1 = "You Are Awesome!"
-        let message2 = "You Are Great!"
-        let message3 = "You Are Amazing!"
         
-        // Dot notation allows you to access the objects attributes
-        if messageLabel.text == message1 {
-            messageLabel.text = message2
-        } else if messageLabel.text == message2 {
-            messageLabel.text = message3
+        let messages = ["You Are Awesome!",
+                        "You Are Great!",
+                        "You Are Fantastic!",
+                        "When the Genuis Bar needs help, they call you",
+                        "You brighten my day!",
+                        "You are da bomb!",
+                        "Hey, fabulous!",
+                        "You are tremendous",
+                        "You've got the design skills of Jony Ive!",
+                        "I can't wait to download your app!"]
+        
+        messageLabel.text = messages[index]
+        if index < messages.count - 1 {
+            index += 1
         } else {
-            messageLabel.text = message1
+            index = 0
         }
+        
+        
+//        let message1 = "You Are Awesome!"
+//        let message2 = "You Are Great!"
+//        let message3 = "You Are Amazing!"
+//
+//        // Dot notation allows you to access the objects attributes
+//        if messageLabel.text == message1 {
+//            messageLabel.text = message2
+//        } else if messageLabel.text == message2 {
+//            messageLabel.text = message3
+//        } else {
+//            messageLabel.text = message1
+//        }
     }
 
 }
@@ -71,4 +93,14 @@ class ViewController: UIViewController {
 // - Greater chance of error
 // - Clutter, memory managment
 
-
+// 2.10 Notes
+// Class wide scope vars exist and retian stored value anywhere inside the class
+// Vars in fucntions are destortyed and recreated each time the functions runs
+// Vars in function won't be remembered across calls becuase they are destroyed after the call
+// Self refers to things that are defined at the class level(Class wide variables)
+// Use po to print out in lldb(line level debug)
+// - Like single line playground
+// Can use breakpoints and debug area to see the values of variables at frozen point in time
+// - Use step over to stept to next line after hitting breakpoint
+// Setting lines of label to 0 will dynamicall fit it(in attributes inspector)
+// Stuff about debug area
