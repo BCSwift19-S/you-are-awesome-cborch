@@ -104,3 +104,9 @@ class ViewController: UIViewController {
 // - Use step over to stept to next line after hitting breakpoint
 // Setting lines of label to 0 will dynamicall fit it(in attributes inspector)
 // Stuff about debug area
+
+// 2.11 Notes
+// Types - Swift is a strongly typed language
+// - String, Int, Double
+// - Can only combine values of the same type
+
