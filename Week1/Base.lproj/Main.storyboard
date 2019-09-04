@@ -27,9 +27,12 @@
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpc-BC-slo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpc-BC-slo">
                                 <rect key="frame" x="108" y="148" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="bYz-yZ-gpI"/>
+                                    <constraint firstAttribute="height" constant="30" id="zJG-X4-MHd"/>
+                                </constraints>
                                 <state key="normal" title="Show Message"/>
                                 <connections>
                                     <action selector="showMessagePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JCB-pp-ydh"/>
@@ -39,8 +42,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2o4-mf-dJ0" secondAttribute="trailing" constant="16" id="497-fU-Wcc"/>
+                            <constraint firstItem="mpc-BC-slo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eh7-Ud-8th"/>
                             <constraint firstItem="2o4-mf-dJ0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mty-Ml-0T8"/>
                             <constraint firstItem="2o4-mf-dJ0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bIk-Zi-dha"/>
+                            <constraint firstItem="mpc-BC-slo" firstAttribute="top" secondItem="2o4-mf-dJ0" secondAttribute="bottom" constant="8" id="mpD-wt-xrq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

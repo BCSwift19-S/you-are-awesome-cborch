@@ -37,12 +37,17 @@ class ViewController: UIViewController {
                         "You've got the design skills of Jony Ive!",
                         "I can't wait to download your app!"]
         
-        messageLabel.text = messages[index]
-        if index < messages.count - 1 {
-            index += 1
-        } else {
-            index = 0
-        }
+        messageLabel.text = messages.randomElement()! // ! to force unwrap the optional
+        
+        // messageLabel.text = messages[Int.random(in: 0..<messages.count)] this also works
+        
+        
+//        messageLabel.text = messages[index]
+//        if index < messages.count - 1 {
+//            index += 1
+//        } else {
+//            index = 0
+//        }
         
         
 //        let message1 = "You Are Awesome!"
