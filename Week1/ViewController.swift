@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     // This function executes when the button is pressed and released
     @IBAction func showMessagePressed(_ sender: UIButton) {
         
-        var newIndex = -1
+        
         let messages = ["You Are Awesome!",
                         "You Are Great!",
                         "You Are Fantastic!",
@@ -37,6 +37,8 @@ class ViewController: UIViewController {
                         "You are tremendous",
                         "You've got the design skills of Jony Ive!",
                         "I can't wait to download your app!"]
+        // var newIndex = -1
+        var newIndex: Int // This declares but doesn't initialize new index. This is fine because the first time we refer to newIndex we initlize it before doing anything else
         
         repeat {
             newIndex = Int.random(in: 0..<messages.count)
