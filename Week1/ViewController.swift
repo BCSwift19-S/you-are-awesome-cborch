@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -14,13 +15,14 @@ class ViewController: UIViewController {
     // Need to name this label so we can control it
     @IBOutlet weak var messageLabel: UILabel!
     // Class wide index var
+    var awesomePlayer = AVAudioPlayer()
+    // Creates an AVAudioPlayer object. Template for an audio player. This is how an audioplayer looks
     var index = -1
     var imageIndex = -1
     let numberOfImages = 10
+    var soundIndex = -1
+    let numberOfSounds = 5
     
-    // Happens when the view loads
-    // Its a system event that apple provides and is called by iOS
-    // iOS sometimes known as event driven programming where there are system events or user actions to trigger functions
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,6 +45,7 @@ class ViewController: UIViewController {
 
         var newIndex: Int // This declares but doesn't initialize new index. This is fine because the first time we refer to newIndex we initlize it before doing anything else
         
+        // Shows a message
         repeat {
             newIndex = Int.random(in: 0..<messages.count)
         } while index == newIndex
@@ -50,15 +53,53 @@ class ViewController: UIViewController {
         index = newIndex // To update the conparison for next press 
         messageLabel.text = messages[index]
         
+        // Shows an image
         // we are done with newIndex by now so we can reuse it
         repeat {
             newIndex = Int.random(in: 0..<numberOfImages)
         } while imageIndex == newIndex
         imageIndex = newIndex
         awesomeImageView.image = UIImage(named: "image\(imageIndex)")
+        
+        // Get a random number to use for sound selection
+        repeat {
+            newIndex = Int.random(in: 0..<numberOfSounds)
+        } while soundIndex == newIndex
+        soundIndex = newIndex
+        
+        // Plays a sound
+        var soundName = "sound\(soundIndex)"
+        // Can we load in the file soudName?
+        if let sound = NSDataAsset(name: soundName) {
+            // Now check if sound.data is a sound file(not just checking nil anymore)
+            do {
+                try awesomePlayer = AVAudioPlayer(data: sound.data)
+                awesomePlayer.play()
+                //print(soundName)
+            } catch {
+                // if sound.data is not a valid audio file
+                print("Error: data in \(soundName) couldn't be played as a sound")
+            }
+            
+        } else {
+            // if reading in the NSDataasset didn't work throw an error
+            print("Error: file \(soundName) didn't load")
+        }
     }
 
 }
+
+// 2.17 Notes
+// Adding sounds
+// Import AVFoundation
+// Create AVAudioPLayer Object
+// Its like a label you can't see becuase its not on IB
+// You have to check if there is data in sound file and that it is read properly
+// - Otherwsie its nil and we will throw an error
+// - if let sound means it we are able to create this constant then do this, otherwise throw error
+// - if let is useful if there is a chance you have nil
+// Do Catch Error Checking
+
 
 // 2.16 Notes
 // UIView is like a label but has a property of image instead of text
