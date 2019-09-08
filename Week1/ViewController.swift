@@ -10,10 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var awesomeImageView: UIImageView!
     // Need to name this label so we can control it
     @IBOutlet weak var messageLabel: UILabel!
     // Class wide index var
-    var index = 0
+    var index = -1
+    var imageIndex = -1
+    let numberOfImages = 10
     
     // Happens when the view loads
     // Its a system event that apple provides and is called by iOS
@@ -37,7 +40,7 @@ class ViewController: UIViewController {
                         "You are tremendous",
                         "You've got the design skills of Jony Ive!",
                         "I can't wait to download your app!"]
-        // var newIndex = -1
+
         var newIndex: Int // This declares but doesn't initialize new index. This is fine because the first time we refer to newIndex we initlize it before doing anything else
         
         repeat {
@@ -47,33 +50,18 @@ class ViewController: UIViewController {
         index = newIndex // To update the conparison for next press 
         messageLabel.text = messages[index]
         
-        // messageLabel.text = messages.randomElement()! // ! to force unwrap the optional
-        // messageLabel.text = messages[Int.random(in: 0..<messages.count)] this also works
-        
-        
-//        messageLabel.text = messages[index]
-//        if index < messages.count - 1 {
-//            index += 1
-//        } else {
-//            index = 0
-//        }
-        
-        
-//        let message1 = "You Are Awesome!"
-//        let message2 = "You Are Great!"
-//        let message3 = "You Are Amazing!"
-//
-//        // Dot notation allows you to access the objects attributes
-//        if messageLabel.text == message1 {
-//            messageLabel.text = message2
-//        } else if messageLabel.text == message2 {
-//            messageLabel.text = message3
-//        } else {
-//            messageLabel.text = message1
-//        }
+        // we are done with newIndex by now so we can reuse it
+        repeat {
+            newIndex = Int.random(in: 0..<numberOfImages)
+        } while imageIndex == newIndex
+        imageIndex = newIndex
+        awesomeImageView.image = UIImage(named: "image\(imageIndex)")
     }
 
 }
+
+// 2.16 Notes
+// UIView is like a label but has a property of image instead of text
 
 // 2.4 Notes
 // If XCode isn't doing code completion you likely have a typo
