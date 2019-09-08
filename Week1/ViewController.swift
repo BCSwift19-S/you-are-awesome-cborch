@@ -35,13 +35,13 @@ class ViewController: UIViewController {
         return newNumber
     }
     
-    func playSound(soundName: String) {
+    func playSound(soundName: String, audioPlayer: inout AVAudioPlayer) {
         // Can we load in the file soudName?
         if let sound = NSDataAsset(name: soundName) {
             // Now check if sound.data is a sound file(not just checking nil anymore)
             do {
-                try awesomePlayer = AVAudioPlayer(data: sound.data)
-                awesomePlayer.play()
+                try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer.play()
                 //print(soundName)
             } catch {
                 // if sound.data is not a valid audio file
@@ -84,14 +84,18 @@ class ViewController: UIViewController {
         soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numberOfSounds)
         // Play a sound
         let soundName = "sound\(soundIndex)"
-        playSound(soundName: soundName)
+        playSound(soundName: soundName, audioPlayer: &awesomePlayer)
     }
 
 }
 
+// 2.19
+// Functions with mutable parameters require inout to be specified right before the type and after the colon
+// - Use & before the var name in the call to work with the new definition 
+
 // 2.18 Notes
 // Functions
-//
+
 
 // 2.17 Notes
 // Adding sounds
