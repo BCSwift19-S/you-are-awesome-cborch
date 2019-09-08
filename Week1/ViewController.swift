@@ -26,49 +26,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    // IBAction button
-    // This function executes when the button is pressed and released
-    @IBAction func showMessagePressed(_ sender: UIButton) {
-        
-        
-        let messages = ["You Are Awesome!",
-                        "You Are Great!",
-                        "You Are Fantastic!",
-                        "When the Genuis Bar needs help, they call you",
-                        "You brighten my day!",
-                        "You are da bomb!",
-                        "Hey, fabulous!",
-                        "You are tremendous",
-                        "You've got the design skills of Jony Ive!",
-                        "I can't wait to download your app!"]
-
-        var newIndex: Int // This declares but doesn't initialize new index. This is fine because the first time we refer to newIndex we initlize it before doing anything else
-        
-        // Shows a message
+    
+    func nonRepeatingRandom(lastNumber: Int, maxValue: Int) -> Int {
+        var newNumber: Int
         repeat {
-            newIndex = Int.random(in: 0..<messages.count)
-        } while index == newIndex
-        
-        index = newIndex // To update the conparison for next press 
-        messageLabel.text = messages[index]
-        
-        // Shows an image
-        // we are done with newIndex by now so we can reuse it
-        repeat {
-            newIndex = Int.random(in: 0..<numberOfImages)
-        } while imageIndex == newIndex
-        imageIndex = newIndex
-        awesomeImageView.image = UIImage(named: "image\(imageIndex)")
-        
-        // Get a random number to use for sound selection
-        repeat {
-            newIndex = Int.random(in: 0..<numberOfSounds)
-        } while soundIndex == newIndex
-        soundIndex = newIndex
-        
-        // Plays a sound
-        var soundName = "sound\(soundIndex)"
+            newNumber = Int.random(in: 0..<maxValue)
+        } while lastNumber == newNumber
+        return newNumber
+    }
+    
+    func playSound(soundName: String) {
         // Can we load in the file soudName?
         if let sound = NSDataAsset(name: soundName) {
             // Now check if sound.data is a sound file(not just checking nil anymore)
@@ -87,7 +54,44 @@ class ViewController: UIViewController {
         }
     }
 
+    // IBAction button
+    // This function executes when the button is pressed and released
+    @IBAction func showMessagePressed(_ sender: UIButton) {
+        
+        
+        let messages = ["You Are Awesome!",
+                        "You Are Great!",
+                        "You Are Fantastic!",
+                        "When the Genuis Bar needs help, they call you",
+                        "You brighten my day!",
+                        "You are da bomb!",
+                        "Hey, fabulous!",
+                        "You are tremendous",
+                        "You've got the design skills of Jony Ive!",
+                        "I can't wait to download your app!"]
+
+        
+        // Shows a message
+        index = nonRepeatingRandom(lastNumber: index, maxValue: messages.count)
+        messageLabel.text = messages[index]
+        
+        // Shows an image
+        // we are done with newIndex by now so we can reuse it
+        imageIndex = nonRepeatingRandom(lastNumber: imageIndex, maxValue: numberOfImages)
+        awesomeImageView.image = UIImage(named: "image\(imageIndex)")
+        
+
+        soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numberOfSounds)
+        // Play a sound
+        let soundName = "sound\(soundIndex)"
+        playSound(soundName: soundName)
+    }
+
 }
+
+// 2.18 Notes
+// Functions
+//
 
 // 2.17 Notes
 // Adding sounds
@@ -99,6 +103,7 @@ class ViewController: UIViewController {
 // - if let sound means it we are able to create this constant then do this, otherwise throw error
 // - if let is useful if there is a chance you have nil
 // Do Catch Error Checking
+// - use keyword try
 
 
 // 2.16 Notes
