@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var soundSwitch: UISwitch!
     @IBOutlet weak var awesomeImageView: UIImageView!
     // Need to name this label so we can control it
     @IBOutlet weak var messageLabel: UILabel!
@@ -54,6 +55,14 @@ class ViewController: UIViewController {
         }
     }
 
+
+    @IBAction func soundSwitchPressed(_ sender: UISwitch) {
+        if soundSwitch.isOn == false && soundIndex != -1 {
+            awesomePlayer.stop()
+        }
+    }
+    
+
     // IBAction button
     // This function executes when the button is pressed and released
     @IBAction func showMessagePressed(_ sender: UIButton) {
@@ -81,17 +90,23 @@ class ViewController: UIViewController {
         awesomeImageView.image = UIImage(named: "image\(imageIndex)")
         
 
-        soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numberOfSounds)
-        // Play a sound
-        let soundName = "sound\(soundIndex)"
-        playSound(soundName: soundName, audioPlayer: &awesomePlayer)
+        if soundSwitch.isOn {
+            soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numberOfSounds)
+            let soundName = "sound\(soundIndex)"
+            playSound(soundName: soundName, audioPlayer: &awesomePlayer)
+        }
     }
 
 }
 
+// 2.20
+// UI Switch Controller
+// Adds a little switch
+// 
+
 // 2.19
 // Functions with mutable parameters require inout to be specified right before the type and after the colon
-// - Use & before the var name in the call to work with the new definition 
+// - Use & before the var name in the call to work with the new definition
 
 // 2.18 Notes
 // Functions
