@@ -99,6 +99,8 @@ class ViewController: UIViewController {
 
 }
 
+// 2.21 and 2.22 Complete
+
 // 2.20
 // UI Switch Controller
 // Adds a little switch
